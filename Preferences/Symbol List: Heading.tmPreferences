@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symbol List: Heading</string>
+	<key>scope</key>
+	<string>text.html.asciidoc markup.heading.asciidoc</string>
+	<key>settings</key>
+	<dict>
+		<key>showInSymbolList</key>
+		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>
+      s/(?&lt;==)=/ /g;          # change all but first # to m-space
+      s/^=( *)\s+(.*)/$1$2/;  # strip first # and space before title
+   </string>
+	</dict>
+	<key>uuid</key>
+	<string>6929E4A8-0833-4D9F-937D-2A86451C655E</string>
+</dict>
+</plist>
