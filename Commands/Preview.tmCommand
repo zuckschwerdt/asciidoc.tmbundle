@@ -6,10 +6,10 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>if [[ -z $TM_FILENAME ]]
-  then asciidoc --out-file - -
-  else asciidoc --out-file - "$TM_FILEPATH"
+  then doc="-"
+  else doc="$TM_FILEPATH"
 fi
-</string>
+asciidoc --out-file - "$doc" 2&gt;&amp;1 | perl -pe 's%(\w+): .*?: line ([0-9]+):%&lt;b style="color:red"&gt;$1&lt;/b&gt;: &lt;a href="txmt://open/?line=$2"&gt;line $2&lt;/a&gt;:%g'</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
