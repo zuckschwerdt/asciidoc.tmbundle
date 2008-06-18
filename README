@@ -1,0 +1,42 @@
+AsciiDoc TextMate bundle
+========================
+
+This is a TextMate bundle for AsciiDoc, see http://www.methods.co.nz/asciidoc/
+
+It's got some basic commands and snippets working. The language grammar is a mess and not really doing anything useful right now.
+
+Commands and Snippets
+---------------------
+
+Commands:
+
+ - Preview
+ - Convert Document
+ - Typeset as PDF
+ - Show Documentation
+
+Snippets:
+
+ - Bold
+ - Italic
+ - Quoted
+ - Superscript
+ - Subscript
+
+Installation
+------------
+
+To install via Git:
+
+    cd ~/"Library/Application Support/TextMate/Bundles/"
+    git clone git://github.com/zuckschwerdt/asciidoc.tmbundle.git "AsciiDoc.tmbundle"
+    osascript -e 'tell app "TextMate" to reload bundles'
+
+Source can be viewed or forked via GitHub: http://github.com/zuckschwerdt/asciidoc.tmbundle/tree/master
+
+Author
+------
+
+Christian Zuckschwerdt
+
+Enjoy.
