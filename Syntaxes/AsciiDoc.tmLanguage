@@ -276,23 +276,6 @@
 			<key>name</key>
 			<string>markup.raw.block.asciidoc</string>
 		</dict>
-		<key>bold</key>
-		<dict>
-			<key>begin</key>
-			<string>	(\*|\*\*)(?=\S)</string>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.bold.asciidoc</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?&lt;=\S)(\1)</string>
-			<key>name</key>
-			<string>markup.bold.asciidoc</string>
-		</dict>
 		<key>bracket</key>
 		<dict>
 			<key>comment</key>
@@ -305,10 +288,10 @@
 			<key>name</key>
 			<string>meta.other.valid-bracket.asciidoc</string>
 		</dict>
-		<key>character-substitution</key>
+		<key>character-replacements</key>
 		<dict>
 			<key>match</key>
-			<string>\(C\)|\(R\)|\(TM\)|--(?!-)|\.\.\.(?!\.)</string>
+			<string>\(C\)|\(R\)|\(TM\)|--(?!-)|\.\.\.(?!\.)|-&gt;|&lt;-|=&gt;|&lt;=</string>
 			<key>name</key>
 			<string>constant.character.asciidoc</string>
 		</dict>
@@ -368,6 +351,18 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#line-break</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#line-page-break</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#line-ruler</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#escape</string>
 				</dict>
 				<dict>
@@ -380,7 +375,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#character-substitution</string>
+					<string>#character-replacements</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -392,27 +387,47 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#quoted-string</string>
+					<string>#text-quote-single</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#quoted-string-other</string>
+					<string>#text-quote-double</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#bold</string>
+					<string>#text-quote-other</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#italic</string>
+					<string>#text-bold-unconstrained</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#monospace</string>
+					<string>#text-italic-unconstrained</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#line-break</string>
+					<string>#text-monospace-unconstrained</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-unquoted-unconstrained</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-bold</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-italic</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-monospace</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-unquoted</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -428,27 +443,24 @@
 				</dict>
 			</array>
 		</dict>
-		<key>italic</key>
-		<dict>
-			<key>begin</key>
-			<string>('|_|__)(?=\S)</string>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.italic.asciidoc</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?&lt;=\S)(\1)((?!\1)|(?=\1\1))</string>
-			<key>name</key>
-			<string>markup.italic.asciidoc</string>
-		</dict>
 		<key>line-break</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;!\+)\+$</string>
+			<string>(?&lt;=\S)\s+\+$</string>
+			<key>name</key>
+			<string>constant.character.escape.asciidoc</string>
+		</dict>
+		<key>line-page-break</key>
+		<dict>
+			<key>match</key>
+			<string>^&lt;{3,}$</string>
+			<key>name</key>
+			<string>constant.character.escape.asciidoc</string>
+		</dict>
+		<key>line-ruler</key>
+		<dict>
+			<key>match</key>
+			<string>^'{3,}$</string>
 			<key>name</key>
 			<string>constant.character.escape.asciidoc</string>
 		</dict>
@@ -473,13 +485,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>monospace</key>
-		<dict>
-			<key>match</key>
-			<string>([\+`]).*(\1)</string>
-			<key>name</key>
-			<string>string.quoted.interpolated.asciidoc</string>
-		</dict>
 		<key>passthrough-macro-doubledollar-inline</key>
 		<dict>
 			<key>match</key>
@@ -493,20 +498,6 @@
 			<string>(?:\[.*\])?\+\+\+(?!\+).+\+\+\+(?!\+)</string>
 			<key>name</key>
 			<string>comment.block.passthrough.asciidoc</string>
-		</dict>
-		<key>quoted-string</key>
-		<dict>
-			<key>match</key>
-			<string>``(?!`).*''(?!')</string>
-			<key>name</key>
-			<string>string.quoted.double.asciidoc</string>
-		</dict>
-		<key>quoted-string-other</key>
-		<dict>
-			<key>match</key>
-			<string>([~^]).*(\1)</string>
-			<key>name</key>
-			<string>string.quoted.single.asciidoc</string>
 		</dict>
 		<key>raw</key>
 		<dict>
@@ -534,6 +525,125 @@
 			<string>\G[ ]{,3}([-*_])([ ]{,2}\1){2,}[ \t]*$\n?</string>
 			<key>name</key>
 			<string>meta.separator.asciidoc</string>
+		</dict>
+		<key>text-bold</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!\w)(\*)(?=\S)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.bold.asciidoc</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?&lt;=\S)(\1)(?!\w)</string>
+			<key>name</key>
+			<string>markup.bold.asciidoc</string>
+		</dict>
+		<key>text-bold-unconstrained</key>
+		<dict>
+			<key>begin</key>
+			<string>(\*\*)(?=\S)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.bold.asciidoc</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?&lt;=\S)(\1)</string>
+			<key>name</key>
+			<string>markup.bold.asciidoc</string>
+		</dict>
+		<key>text-italic</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!\w)('|_)(?=\S)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.italic.asciidoc</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?&lt;=\S)(\1)((?!\1)|(?=\1\1))(?!\w)</string>
+			<key>name</key>
+			<string>markup.italic.asciidoc</string>
+		</dict>
+		<key>text-italic-unconstrained</key>
+		<dict>
+			<key>begin</key>
+			<string>(__)(?=\S)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.italic.asciidoc</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?&lt;=\S)(\1)</string>
+			<key>name</key>
+			<string>markup.italic.asciidoc</string>
+		</dict>
+		<key>text-monospace</key>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;!\w)([\+`]).*(\1)(?!\w)</string>
+			<key>name</key>
+			<string>string.interpolated.asciidoc</string>
+		</dict>
+		<key>text-monospace-unconstrained</key>
+		<dict>
+			<key>match</key>
+			<string>(\+\+).*(\1)</string>
+			<key>name</key>
+			<string>string.interpolated.asciidoc</string>
+		</dict>
+		<key>text-quote-double</key>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;!\w)(?:\[.*\])?``(?!`).*''(?!')(?!\w)</string>
+			<key>name</key>
+			<string>string.quoted.double.asciidoc</string>
+		</dict>
+		<key>text-quote-other</key>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;!\w)(?:\[.*\])?([~^]).*(\1)(?!\w)</string>
+			<key>name</key>
+			<string>string.quoted.single.asciidoc</string>
+		</dict>
+		<key>text-quote-single-</key>
+		<dict>
+			<key>comment</key>
+			<string>TODO: Sub- and Superscript are really unconstrained</string>
+			<key>match</key>
+			<string>(?&lt;!\w)(?:\[.*\])?`(?!`).*'(?!')(?!\w)</string>
+			<key>name</key>
+			<string>string.quoted.single.asciidoc</string>
+		</dict>
+		<key>text-unquoted</key>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;!\w)(#).*(\1)(?!\w)</string>
+			<key>name</key>
+			<string>string.unquoted.asciidoc</string>
+		</dict>
+		<key>text-unquoted-unconstrained</key>
+		<dict>
+			<key>match</key>
+			<string>(##).*(\1)</string>
+			<key>name</key>
+			<string>string.unquoted.asciidoc</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
