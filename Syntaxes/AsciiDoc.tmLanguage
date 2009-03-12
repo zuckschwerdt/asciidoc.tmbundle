@@ -30,6 +30,22 @@
 	<array>
 		<dict>
 			<key>begin</key>
+			<string>\$\$(?!\$)</string>
+			<key>end</key>
+			<string>\$\$(?!\$)</string>
+			<key>name</key>
+			<string>comment.block.passthrough.macro.doubledollar.asciidoc</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>\+\+\+(?!\+)</string>
+			<key>end</key>
+			<string>\+\+\+(?!\+)</string>
+			<key>name</key>
+			<string>comment.block.passthrough.macro.tripeplus.asciidoc</string>
+		</dict>
+		<dict>
+			<key>begin</key>
 			<string>(?x)^
 				(?=	[/+-.*_=]{4,}\s*$
 				|	([ \t]{1,})
@@ -223,6 +239,27 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>attribute-entry</key>
+		<dict>
+			<key>match</key>
+			<string>^:[-_. A-Za-z0-9]+:\s*(.*)\s*$</string>
+			<key>name</key>
+			<string>variable.other</string>
+		</dict>
+		<key>attribute-reference</key>
+		<dict>
+			<key>match</key>
+			<string>{[-_. A-Za-z0-9]+}</string>
+			<key>name</key>
+			<string>variable.other</string>
+		</dict>
+		<key>attribute-reference-predefined</key>
+		<dict>
+			<key>match</key>
+			<string>{(?i:amp|asciidoc-dir|asciidoc-file|asciidoc-version|author|authored|authorinitials|backend-docbook|backend-xhtml11|backend-html4|docbook-article|xhtml11-article|html4-article|docbook-book|xhtml11-book|html4-book|docbook-manpage|xhtml11-manpage|html4-manpage|backend|backslash|basebackend|brvbar|date|docdate|doctime|docname|docfile|docdir|doctitle|doctype-article|doctype-book|doctype-manpage|doctype|email|empty|encoding|filetype|firstname|gt|id|indir|infile|lastname|level|listindex|localdate|localtime|lt|manname|manpurpose|mantitle|manvolnum|middlename|nbsp|outdir|outfile|reftext|revision|sectnum|showcomments|title|two_colons|two_semicolons|user-dir|verbose)}</string>
+			<key>name</key>
+			<string>support.variable</string>
+		</dict>
 		<key>block_quote</key>
 		<dict>
 			<key>begin</key>
@@ -268,10 +305,17 @@
 			<key>name</key>
 			<string>meta.other.valid-bracket.asciidoc</string>
 		</dict>
+		<key>character-substitution</key>
+		<dict>
+			<key>match</key>
+			<string>\(C\)|\(R\)|\(TM\)|--(?!-)|\.\.\.(?!\.)</string>
+			<key>name</key>
+			<string>constant.character.asciidoc</string>
+		</dict>
 		<key>escape</key>
 		<dict>
 			<key>match</key>
-			<string>\\[-`*_#+.!(){}\[\]\\&gt;]</string>
+			<string>\\[-`*_#+.!(){}\[\]\\&gt;:]</string>
 			<key>name</key>
 			<string>constant.character.escape.asciidoc</string>
 		</dict>
@@ -328,11 +372,31 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#passthrough-macro-trippleplus-inline</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#passthrough-macro-doubledollar-inline</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#character-substitution</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#bracket</string>
 				</dict>
 				<dict>
 					<key>include</key>
 					<string>#raw</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#quoted-string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#quoted-string-other</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -344,14 +408,30 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#monospace</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#line-break</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#attribute-entry</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#attribute-reference-predefined</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#attribute-reference</string>
 				</dict>
 			</array>
 		</dict>
 		<key>italic</key>
 		<dict>
 			<key>begin</key>
-			<string>(_|__)(?=\S)</string>
+			<string>('|_|__)(?=\S)</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -368,9 +448,9 @@
 		<key>line-break</key>
 		<dict>
 			<key>match</key>
-			<string> {\+}$</string>
+			<string>(?&lt;!\+)\+$</string>
 			<key>name</key>
-			<string>meta.dummy.line-break</string>
+			<string>constant.character.escape.asciidoc</string>
 		</dict>
 		<key>list-paragraph</key>
 		<dict>
@@ -392,6 +472,41 @@
 					</array>
 				</dict>
 			</array>
+		</dict>
+		<key>monospace</key>
+		<dict>
+			<key>match</key>
+			<string>([\+`]).*(\1)</string>
+			<key>name</key>
+			<string>string.quoted.interpolated.asciidoc</string>
+		</dict>
+		<key>passthrough-macro-doubledollar-inline</key>
+		<dict>
+			<key>match</key>
+			<string>(?:\[.*\])?\$\$(?!\$).+\$\$(?!\$)</string>
+			<key>name</key>
+			<string>comment.block.passthrough.asciidoc</string>
+		</dict>
+		<key>passthrough-macro-trippleplus-inline</key>
+		<dict>
+			<key>match</key>
+			<string>(?:\[.*\])?\+\+\+(?!\+).+\+\+\+(?!\+)</string>
+			<key>name</key>
+			<string>comment.block.passthrough.asciidoc</string>
+		</dict>
+		<key>quoted-string</key>
+		<dict>
+			<key>match</key>
+			<string>``(?!`).*''(?!')</string>
+			<key>name</key>
+			<string>string.quoted.double.asciidoc</string>
+		</dict>
+		<key>quoted-string-other</key>
+		<dict>
+			<key>match</key>
+			<string>([~^]).*(\1)</string>
+			<key>name</key>
+			<string>string.quoted.single.asciidoc</string>
 		</dict>
 		<key>raw</key>
 		<dict>
