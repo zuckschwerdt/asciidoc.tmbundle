@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>
+${TM_CURRENT_LINE/./=/g}
+${1:Author Name} &lt;${2:mail@address.com}&gt;
+v1.0, `date`
+
+</string>
+	<key>name</key>
+	<string>Heading 0</string>
+	<key>uuid</key>
+	<string>0E6196F8-4A32-475D-8EF3-B740FD7BFEC9</string>
+</dict>
+</plist>
