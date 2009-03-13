@@ -1,6 +1,50 @@
 AsciiDoc TextMate Bundle -- Test Document
 =========================================
 
+Optional Author Name <optional@author.email>
+Optional version, optional date
+:Author:    AlternativeWayToSetOptional Author Name
+:Email:     <AlternativeWayToSetOptional@author.email>
+:Date:      AlternativeWayToSetOptional date
+:Revision:  AlternativeWayToSetOptional version
+
+.Attributes
+There a lot of predefined attributes in AsciiDoc, Author is {author} Version is {revision} plus you can add your own {attributename}.
+
+[[id]]
+Block with id
+
+(C) copyright, (TM) trademark, (R) registered trademark,
+-- em dash, ... ellipsis, -> right arrow, <- left arrow, => right
+double arrow, <= left double arrow.
+
+forced +
+line break
+
+page break
+<<<
+
+ruler
+'''''
+
+normal, _italic_, *bold*, +mono+, #unquoted#.
+Unconstrained**bold**Unconstrained
+Unconstrained__italic__Unconstrained
+Unconstrained++mono++Unconstrained
+Unconstrained##Unquoted##Unconstrained
+
+``quoted'', ^super^, ~sub~.
+
+Command: `ls -al`
+
+Path: '/some/filez.txt', '.b'
+
+Escaped: \{qwe} and +++{qwe}+++
+and also \_italic_, +++_italic_+++, $$<b>normal</b>$$
+
+Red [red]+++`sum_(i=1)\^n i=(n(n+1))/2`$+++ AsciiMathML formula
+
+
 //////////////////////////
 CommentBlock
 //////////////////////////
