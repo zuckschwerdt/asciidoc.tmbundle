@@ -29,6 +29,18 @@
 	<key>patterns</key>
 	<array>
 		<dict>
+			<key>include</key>
+			<string>#heading_inline</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#heading-block</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#heading-blockattr</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>\$\$(?!\$)</string>
 			<key>end</key>
@@ -74,6 +86,10 @@
 				<dict>
 					<key>include</key>
 					<string>#heading_inline</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#heading-block</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -316,6 +332,36 @@
 			<string>entity.name.section.asciidoc</string>
 			<key>match</key>
 			<string>(?m)^(\S+)$([=-~^+])+\s*$</string>
+			<key>name</key>
+			<string>markup.heading.asciidoc</string>
+		</dict>
+		<key>heading-block</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.heading.asciidoc</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\.(\w.*)$</string>
+			<key>name</key>
+			<string>markup.heading.asciidoc</string>
+		</dict>
+		<key>heading-blockattr</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.heading.asciidoc</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\[\[?(\w.*)\]$</string>
 			<key>name</key>
 			<string>markup.heading.asciidoc</string>
 		</dict>
