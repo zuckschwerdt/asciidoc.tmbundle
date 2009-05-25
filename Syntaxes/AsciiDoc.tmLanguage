@@ -668,7 +668,7 @@
 			<key>name</key>
 			<string>string.quoted.single.asciidoc</string>
 		</dict>
-		<key>text-quote-single-</key>
+		<key>text-quote-single</key>
 		<dict>
 			<key>comment</key>
 			<string>TODO: Sub- and Superscript are really unconstrained</string>
