@@ -9,8 +9,7 @@
 	</string>
 	<key>fileTypes</key>
 	<array>
-		<string>txt</string>
-		<string>text</string>
+		<string>asc</string>
 	</array>
 	<key>foldingStartMarker</key>
 	<string>(?x)
@@ -31,14 +30,14 @@
 		<dict>
 			<key>begin</key>
 			<string>(?x)^
-				(?=	[/+-.*_=]{4,}\s*$
+				(?=	([/+-.*_=]{4,})\s*$
 				|	([ \t]{1,})
 				|	[=]{1,6}\s*+
 				|	[ ]{,3}(?&lt;marker&gt;[-*_])([ ]{,2}\k&lt;marker&gt;){2,}[ \t]*+$
 				)</string>
 			<key>end</key>
 			<string>(?x)^
-				(?!	[/+-.*_=]{4,}
+				(?!	\1
 				|	([ \t]{1,})
 				|	[=]{1,6}\s*+
 				|	[ ]{,3}(?&lt;marker&gt;[-*_])([ ]{,2}\k&lt;marker&gt;){2,}[ \t]*+$
