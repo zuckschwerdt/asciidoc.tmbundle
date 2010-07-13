@@ -12,19 +12,19 @@ Commands and Snippets
 
 Commands:
 
- - Preview
- - Convert Document
- - Typeset as PDF
+ - Preview (try `Ctrl+Opt+Cmd+P`)
+ - Convert Document (try `Ctrl+Shift+H`)
+ - Typeset as PDF (try `Cmd+R`)
  - Show Documentation
 
 Snippets:
 
- - Bold
- - Italic
- - Quoted
- - Superscript
- - Subscript
- - Headings (try `Ctrl-Cmd-T h1`)
+ - Bold (try `Cmd+B`)
+ - Italic (try `Cmd+I`)
+ - Quoted (try `Cmd+'`)
+ - Superscript (try `Ctrl+Shift+up`)
+ - Subscript (try `Ctrl+Shift+down`)
+ - Headings (try `Ctrl+0` to `Ctrl+4` or `h1 TAB` to `h4 TAB` for one-liner versions)
  - Tab expansion for blocks (try `== TAB`)
 
 Installation
@@ -33,16 +33,16 @@ Installation
 To install via Git:
 
     cd ~/"Library/Application Support/TextMate/Bundles/"
-    git clone git://github.com/zuckschwerdt/asciidoc.tmbundle.git "AsciiDoc.tmbundle"
+    git clone git://github.com/gjherbiet/asciidoc.tmbundle.git "AsciiDoc.tmbundle"
     osascript -e 'tell app "TextMate" to reload bundles'
 
 Also be sure to have asciidoc itself and maybe LaTeX around.
 
-Source can be viewed or forked via [GitHub](http://github.com/zuckschwerdt/asciidoc.tmbundle/tree/master).
+Source can be viewed or forked via [GitHub](http://github.com/gjherbiet/asciidoc.tmbundle/tree/master).
 
 Author
 ------
 
-Christian Zuckschwerdt
+Christian Zuckschwerdt. Complementary shortcut and fixes by Guillaume-Jean Herbiet.
 
 Enjoy.
