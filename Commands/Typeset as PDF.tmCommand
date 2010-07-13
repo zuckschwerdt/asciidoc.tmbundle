@@ -26,6 +26,8 @@ exit $RC
 </string>
 	<key>input</key>
 	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
 	<key>name</key>
 	<string>Typeset as PDF</string>
 	<key>output</key>
