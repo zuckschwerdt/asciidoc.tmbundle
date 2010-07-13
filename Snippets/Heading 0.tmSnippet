@@ -9,8 +9,12 @@ ${1:Author Name} &lt;${2:mail@address.com}&gt;
 v1.0, `date`
 
 </string>
+	<key>keyEquivalent</key>
+	<string>^0</string>
 	<key>name</key>
 	<string>Heading 0</string>
+	<key>scope</key>
+	<string>text.html.asciidoc</string>
 	<key>uuid</key>
 	<string>0E6196F8-4A32-475D-8EF3-B740FD7BFEC9</string>
 </dict>

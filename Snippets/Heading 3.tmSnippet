@@ -6,8 +6,12 @@
 	<string>
 ${TM_CURRENT_LINE/./^/g}
 </string>
+	<key>keyEquivalent</key>
+	<string>^3</string>
 	<key>name</key>
 	<string>Heading 3</string>
+	<key>scope</key>
+	<string>text.html.asciidoc</string>
 	<key>uuid</key>
 	<string>9FE5264D-D100-44C7-9A48-9B190E340585</string>
 </dict>

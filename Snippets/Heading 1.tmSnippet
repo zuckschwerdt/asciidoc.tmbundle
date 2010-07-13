@@ -6,6 +6,8 @@
 	<string>
 ${TM_CURRENT_LINE/./-/g}
 </string>
+	<key>keyEquivalent</key>
+	<string>^1</string>
 	<key>name</key>
 	<string>Heading 1</string>
 	<key>scope</key>
