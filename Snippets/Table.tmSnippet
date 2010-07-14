@@ -4,9 +4,9 @@
 <dict>
 	<key>content</key>
 	<string>.${1:Legend}
-[width="${2:100%}",options="$3"]
+[width="${2:100%}",cols="$3",options="$4"]
 |===
-|$4
+|$5
 |===</string>
 	<key>name</key>
 	<string>Table</string>
