@@ -13,7 +13,7 @@
 	<key>scope</key>
 	<string>text.html.asciidoc</string>
 	<key>tabTrigger</key>
-	<string>tab</string>
+	<string>|=</string>
 	<key>uuid</key>
 	<string>3B585BB2-4B9E-4B30-93F3-25AF584B0AF2</string>
 </dict>

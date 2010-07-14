@@ -25,6 +25,7 @@ Snippets:
  - Superscript (try `Ctrl+Shift+up`)
  - Subscript (try `Ctrl+Shift+down`)
  - Headings (try `Ctrl+0` to `Ctrl+4` or `h1 TAB` to `h4 TAB` for one-liner versions)
+ - Table generation (try `\= TAB`)
  - Tab expansion for blocks (try `== TAB`)
 
 Installation
