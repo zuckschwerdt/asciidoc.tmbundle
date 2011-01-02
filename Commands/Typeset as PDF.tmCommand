@@ -12,16 +12,16 @@
 # Prepare output window.
 html_header 'Typeset &amp;amp; View' "$TM_FILENAME (PDF)"
 
+# Run asciidoc to get a list of errors. a2x -v is too verbose.
+asciidoc --backend=docbook -o /dev/null "$TM_FILEPATH"
+test "$?" = "0" || exit 1
+echo "Document vaild. Typesetting...&lt;/ br&gt;"
+
 # Compile.
-asciidoc --backend=docbook "$TM_FILEPATH"
-if [ -f ./custom.sty ] ; then
-  dblatex -b pdftex --texstyle ./custom.sty "${TM_FILEPATH%.*}.xml"
-else
-  dblatex -b pdftex "${TM_FILEPATH%.*}.xml"
-fi
+a2x "$TM_FILEPATH"
 RC=$?
 html_footer
-open "${TM_FILEPATH%.*}.pdf"
+test "$RC" = "0" &amp;&amp; open "${TM_FILEPATH%.*}.pdf"
 exit $RC
 </string>
 	<key>input</key>
