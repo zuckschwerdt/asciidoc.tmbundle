@@ -56,6 +56,12 @@
 			<string>comment.block.passthrough.macro.tripeplus.asciidoc</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>(//).*$\n?</string>
+			<key>name</key>
+			<string>comment.line.double-slash.asciidoc</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>(?x)^
 				(?=	([/+-.*_=]{4,})\s*$
