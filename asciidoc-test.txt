@@ -45,6 +45,22 @@ and also \_italic_, +++_italic_+++, $$<b>normal</b>$$
 Red [red]+++`sum_(i=1)\^n i=(n(n+1))/2`$+++ AsciiMathML formula
 
 
+the footnotes footnote:[<text>]do not include this]
+the footnote refs: footnoteref:[<text>]do not include this]
+the indexterms indexterm:[<primary>,<secondary>,<tertiary>] alternate: (((<primary>,<secondary>,<tertiary>))) more text
+more indexterms indexterm2:[<primary>,<secondary>,<tertiary>] alternate: ((<primary>,<secondary>,<tertiary>)) more text
+the macros include::<Pfad>/<Name>[text] some text
+the images image:<Pfad>/<Name>[id="<Label>",width="50%"] some text
+
+Used to specify hypertext link targets: [[id,xreflabel]]  alternate: anchor:id[xreflabel]
+Creates a hypertext link to a document anchor. <<id,caption>> alternate: xref:id[caption]
+
+some links http://www.docbook.org/[DocBook.org] text
+some links http://www.docbook.org/ text
+some links mailto:joe.bloggs@foobar.com[email Joe Bloggs] text
+some links joe.bloggs@foobar.com text
+
+
 //////////////////////////
 CommentBlock
 //////////////////////////

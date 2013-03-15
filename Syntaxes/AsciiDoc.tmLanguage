@@ -430,6 +430,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#text-xref</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#bracket</string>
 				</dict>
 				<dict>
@@ -466,6 +470,34 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#text-footnote</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-indexterm</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-image</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-anchor</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-link</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-mail-link</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#text-bold</string>
 				</dict>
 				<dict>
@@ -479,6 +511,10 @@
 				<dict>
 					<key>include</key>
 					<string>#text-unquoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-footnote</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -577,6 +613,13 @@
 			<key>name</key>
 			<string>meta.separator.asciidoc</string>
 		</dict>
+		<key>text-anchor</key>
+		<dict>
+			<key>match</key>
+			<string>(?:\[\[.*?\]\])|(?:\banchor:\S+(?:\[.*?\])?)</string>
+			<key>name</key>
+			<string>markup.underline.link.anchor.asciidoc</string>
+		</dict>
 		<key>text-bold</key>
 		<dict>
 			<key>begin</key>
@@ -611,6 +654,27 @@
 			<key>name</key>
 			<string>markup.bold.asciidoc</string>
 		</dict>
+		<key>text-footnote</key>
+		<dict>
+			<key>match</key>
+			<string>\bfootnote(?:ref)?:\[.*?\]</string>
+			<key>name</key>
+			<string>string.quoted.single.asciidoc</string>
+		</dict>
+		<key>text-image</key>
+		<dict>
+			<key>match</key>
+			<string>\b(?:image|link):\S+(?:\[.*?\])?</string>
+			<key>name</key>
+			<string>markup.underline.link.image.asciidoc</string>
+		</dict>
+		<key>text-indexterm</key>
+		<dict>
+			<key>match</key>
+			<string>(?:\bindexterm2?:\[.*?\])|(?:\(\(\(?.*?\)?\)\))</string>
+			<key>name</key>
+			<string>string.quoted.single.asciidoc</string>
+		</dict>
 		<key>text-italic</key>
 		<dict>
 			<key>begin</key>
@@ -644,6 +708,27 @@
 			<string>(?&lt;=\S)(\1)</string>
 			<key>name</key>
 			<string>markup.italic.asciidoc</string>
+		</dict>
+		<key>text-link</key>
+		<dict>
+			<key>match</key>
+			<string>\b(?:http|mailto):[^\[\s]+(?:\[.*?\])?</string>
+			<key>name</key>
+			<string>markup.underline.link.inet.asciidoc</string>
+		</dict>
+		<key>text-macro</key>
+		<dict>
+			<key>match</key>
+			<string>\S+::\S+(?:\[.*?\])?</string>
+			<key>name</key>
+			<string>string.quoted.single.asciidoc</string>
+		</dict>
+		<key>text-mail-link</key>
+		<dict>
+			<key>match</key>
+			<string>\b\S+@\S+\b</string>
+			<key>name</key>
+			<string>markup.underline.link.email.asciidoc</string>
 		</dict>
 		<key>text-monospace</key>
 		<dict>
@@ -695,6 +780,13 @@
 			<string>(##).*(\1)</string>
 			<key>name</key>
 			<string>string.unquoted.asciidoc</string>
+		</dict>
+		<key>text-xref</key>
+		<dict>
+			<key>match</key>
+			<string>(?:&lt;&lt;.*?&gt;&gt;)|(?:\bxref:\S+(?:\[.*?\])?)</string>
+			<key>name</key>
+			<string>markup.underline.link.xref.asciidoc</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
