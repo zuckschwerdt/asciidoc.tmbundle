@@ -13,7 +13,7 @@ asciidoc --attribute=imagesdir="file://$(pwd)" --out-file - "$doc" 2&gt;&amp;1 |
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
-	<string>^~@p</string>
+	<string>@r</string>
 	<key>name</key>
 	<string>Preview</string>
 	<key>output</key>
