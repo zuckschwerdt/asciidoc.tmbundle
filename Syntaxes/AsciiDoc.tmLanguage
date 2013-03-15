@@ -616,7 +616,7 @@
 		<key>text-anchor</key>
 		<dict>
 			<key>match</key>
-			<string>(?:\[\[.*?\]\])|(?:\banchor:\S+(?:\[.*?\])?)</string>
+			<string>(?:\[\[.*?\]\])|(?:\banchor:[^\[\s]+(?:\[.*?\])?)</string>
 			<key>name</key>
 			<string>markup.underline.link.anchor.asciidoc</string>
 		</dict>
@@ -664,7 +664,7 @@
 		<key>text-image</key>
 		<dict>
 			<key>match</key>
-			<string>\b(?:image|link):\S+(?:\[.*?\])?</string>
+			<string>\b(?:image|link):[^\[\s]+(?:\[.*?\])?</string>
 			<key>name</key>
 			<string>markup.underline.link.image.asciidoc</string>
 		</dict>
@@ -719,14 +719,14 @@
 		<key>text-macro</key>
 		<dict>
 			<key>match</key>
-			<string>\S+::\S+(?:\[.*?\])?</string>
+			<string>\S+::[^\[\s]+(?:\[.*?\])?</string>
 			<key>name</key>
 			<string>string.quoted.single.asciidoc</string>
 		</dict>
 		<key>text-mail-link</key>
 		<dict>
 			<key>match</key>
-			<string>\b\S+@\S+\b</string>
+			<string>\b[^@\s]+@[^@\s]+\b</string>
 			<key>name</key>
 			<string>markup.underline.link.email.asciidoc</string>
 		</dict>
@@ -784,7 +784,7 @@
 		<key>text-xref</key>
 		<dict>
 			<key>match</key>
-			<string>(?:&lt;&lt;.*?&gt;&gt;)|(?:\bxref:\S+(?:\[.*?\])?)</string>
+			<string>(?:&lt;&lt;.*?&gt;&gt;)|(?:\bxref:[^\[\s]+(?:\[.*?\])?)</string>
 			<key>name</key>
 			<string>markup.underline.link.xref.asciidoc</string>
 		</dict>
