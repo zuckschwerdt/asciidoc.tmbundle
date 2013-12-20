@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>[source,scala]
-----------------------------------------------------------------------
-$1
-----------------------------------------------------------------------
+	<string>[source,$1]
+----
+$2
+----
 $0</string>
 	<key>name</key>
 	<string>Listing Block</string>
