@@ -33,7 +33,10 @@ Installation
 
 To install via Git:
 
+    # For Textmate 1.x:
     cd ~/"Library/Application Support/TextMate/Bundles/"
+    # or for Textmate 2.x:
+    cd ~/"Library/Application Support/TextMate/Managed/Bundles/"
     git clone git://github.com/zuckschwerdt/asciidoc.tmbundle.git "AsciiDoc.tmbundle"
     osascript -e 'tell app "TextMate" to reload bundles'
 
